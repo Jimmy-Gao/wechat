@@ -1,6 +1,6 @@
 package org.linuxkernel.wechat.bean;
 
-public class MassagerBean {
+public class MessageBean {
 
    private String ToUserName = "";
    private String FromUserName = "";

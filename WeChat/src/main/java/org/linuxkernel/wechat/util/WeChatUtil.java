@@ -19,7 +19,7 @@ import javax.net.ssl.TrustManager;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import org.linuxkernel.wechat.bean.MassagerBean;
+import org.linuxkernel.wechat.bean.MessageBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,8 +73,8 @@ public class WeChatUtil {
 		return jsonObject;
 	}
 
-	public static MassagerBean parseStream2XMLBean(InputStream inputStream) {
-		MassagerBean xmlBean = null;
+	public static MessageBean parseStream2XMLBean(InputStream inputStream) {
+		MessageBean xmlBean = null;
 		StringBuffer xmlStr = new StringBuffer();
 		try (InputStreamReader inputStreamReader = new InputStreamReader(inputStream)) {
 			BufferedReader buffer = new BufferedReader(inputStreamReader);
@@ -90,17 +90,17 @@ public class WeChatUtil {
 		return xmlBean;
 	}
 
-	private static MassagerBean parseStr2XML(String xml) {
-		MassagerBean xmlBean = null;
+	private static MessageBean parseStr2XML(String xml) {
+		MessageBean xmlBean = null;
 		try {
 			if (xml.length() <= 0 || xml == null)
 				return null;
 			Document document = DocumentHelper.parseText(xml);
 			Element root = document.getRootElement();
 			Iterator<?> iter = root.elementIterator();
-			xmlBean = new MassagerBean();
-			Class<?> clazz = Class.forName("org.linuxkernel.wechat.bean.MassagerBean");
-			xmlBean = (MassagerBean) clazz.newInstance();
+			xmlBean = new MessageBean();
+			Class<?> clazz = Class.forName("org.linuxkernel.wechat.bean.MessageBean");
+			xmlBean = (MessageBean) clazz.newInstance();
 			while (iter.hasNext()) {
 				Element ele = (Element) iter.next();
 				Field field = clazz.getDeclaredField(ele.getName());

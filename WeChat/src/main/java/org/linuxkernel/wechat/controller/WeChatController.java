@@ -5,6 +5,8 @@ import java.io.InputStream;
 
 import javax.servlet.http.HttpSession;
 
+import org.linuxkernel.wechat.bean.MessageBean;
+import org.linuxkernel.wechat.handler.HandlerFactory;
 import org.linuxkernel.wechat.service.UserService;
 import org.linuxkernel.wechat.util.SignatureUtil;
 import org.linuxkernel.wechat.util.WeChatUtil;
@@ -42,8 +44,9 @@ public class WeChatController extends BaseController {
 	@RequestMapping(value = "/wechat", method = RequestMethod.POST)
 	public void weChat() {
 		try (InputStream inputStream = this.getInputStream()) {
-			System.out.println(WeChatUtil.parseStream2XMLBean(inputStream)
-					.toString());
+			MessageBean message = WeChatUtil.parseStream2XMLBean(inputStream);
+			System.out.println(message.toString());
+			this.outputText(HandlerFactory.createHandler(message).response());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

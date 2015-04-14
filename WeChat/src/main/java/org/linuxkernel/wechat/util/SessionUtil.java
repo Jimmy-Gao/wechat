@@ -14,7 +14,6 @@ public class SessionUtil {
    private static Logger log = Logger.getLogger(SessionUtil.class);
    private static ConcurrentHashMap<String, WeChatSession> sessions = new ConcurrentHashMap<String, WeChatSession>();
 
-   // maximum sessions, default is 30
    private static int maximumSessions = 30;
 
    public static void setMaximumSessions(int max) {

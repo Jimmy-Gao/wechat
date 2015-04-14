@@ -2,4 +2,4 @@
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://github.com/GorlJimmy/template
 eclipse.preferences.version=1
-encoding//src/main/webapp/WEB-INF/templates/contact_us.jsp=UTF-8
+encoding//src/main/java/org/linuxkernel/wechat/util/WeChatUtil.java=UTF-8

@@ -7,9 +7,8 @@
 	<bean id="validateFilter" class="org.linuxkernel.wechat.filter.ValidateFilter">
 		<property name="allows">
 			<array>
-				<value>media</value>
 				<value>wechat</value>
-				<value>.jsp</value>
+				<value>.html</value>
 			</array>
 		</property>
 	</bean>

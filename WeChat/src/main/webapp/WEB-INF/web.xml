@@ -44,7 +44,7 @@
   <filter-class>org.linuxkernel.wechat.filter.Encodingfilter</filter-class>
   <init-param>
   <param-name>encoding</param-name>
-  <param-value>utf-8</param-value>
+  <param-value>UTF-8</param-value>
   </init-param>
   </filter>
 
@@ -68,10 +68,6 @@
     <servlet-name>spring</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <error-page>
-  <error-code>404</error-code>
-  <location>/error_404</location>
-  </error-page>
   <welcome-file-list>
     <welcome-file>/</welcome-file>
   </welcome-file-list>

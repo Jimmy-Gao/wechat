@@ -57,7 +57,6 @@ public class SignatureUtil {
       char[] tempArr = new char[2];
       tempArr[0] = Digit[(b >>> 4) & 0X0F];
       tempArr[1] = Digit[b & 0X0F];
-
       String s = new String(tempArr);
       return s;
    }

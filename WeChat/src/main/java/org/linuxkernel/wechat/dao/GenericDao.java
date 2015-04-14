@@ -17,11 +17,11 @@ public class GenericDao<T extends Serializable> {
 
    @Autowired(required = true)
    private SessionFactory sessionFactory;
-   private Class<T> persistentClass;
+   private Class<T> clazz;
 
    public GenericDao() {
-      this.persistentClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-      logger.info(persistentClass.getName());
+      this.clazz = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+      logger.info(clazz.getName());
    }
 
    public void create(T entity) {
@@ -32,7 +32,7 @@ public class GenericDao<T extends Serializable> {
 
    public T findById(int id) {
       Session session = this.sessionFactory.getCurrentSession();
-      T entity = (T) session.get(persistentClass, new Integer(id));
+      T entity = (T) session.get(clazz, new Integer(id));
       return entity;
    }
 
@@ -44,7 +44,7 @@ public class GenericDao<T extends Serializable> {
 
    public void deleteByHQL(String HQL, Object[] params) {
       Session session = this.sessionFactory.getCurrentSession();
-      Query query = session.createQuery("delete " + persistentClass.getName() + " " + HQL);
+      Query query = session.createQuery("delete " + clazz.getName() + " " + HQL);
       for (int i = 0; i < params.length; i++) {
          query.setParameter(i, params[i]);
       }
@@ -58,7 +58,7 @@ public class GenericDao<T extends Serializable> {
 
    public void updateByHQL(String HQL, Object[] params) {
       Session session = this.sessionFactory.getCurrentSession();
-      Query query = session.createQuery("update " + persistentClass.getName() + " " + HQL);
+      Query query = session.createQuery("update " + clazz.getName() + " " + HQL);
       for (int i = 0; i < params.length; i++) {
          query.setParameter(i, params[i]);
       }
@@ -67,12 +67,12 @@ public class GenericDao<T extends Serializable> {
 
    public List<T> findAll() {
       Session session = this.sessionFactory.getCurrentSession();
-      return session.createQuery("from " + persistentClass.getName()).list();
+      return session.createQuery("from " + clazz.getName()).list();
    }
 
    public T queryByHQL(String HQL, Object[] params) {
       Session session = this.sessionFactory.getCurrentSession();
-      Query query = session.createQuery("from " + persistentClass.getName() + " " + HQL);
+      Query query = session.createQuery("from " + clazz.getName() + " " + HQL);
       for (int i = 0; i < params.length; i++) {
          query.setParameter(i, params[i]);
       }
@@ -81,7 +81,7 @@ public class GenericDao<T extends Serializable> {
 
    public List<T> findByHQL(String HQL, Object[] params) {
       Session session = this.sessionFactory.getCurrentSession();
-      Query query = session.createQuery("from " + persistentClass.getName() + " " + HQL);
+      Query query = session.createQuery("from " + clazz.getName() + " " + HQL);
       for (int i = 0; i < params.length; i++) {
          query.setParameter(i, params[i]);
       }

@@ -11,17 +11,20 @@ public class EventMessageHandler extends MessageHandler {
 
 	public String response() {
 		String content = "";
-		switch (message.getEvent().toUpperCase()) {
-		case "SUBSCRIBE":
+		switch (message.getEvent().toLowerCase()) {
+		case "subscribe":
 			content = "welcome to my house!";
-		case "UNSUBSCRIBE":
+		case "unsubscribe":
 			content = "oop";
 		default:
 			content = "welcome to my house!";
 		}
+		System.out.println(message.toString());
 		TextMessage textMessage = new TextMessage(message);
 		textMessage.setContent(content);
 		textMessage.setFuncFlag(0);
-		return ParseUtil.messageToXml(textMessage);
+		String response = ParseUtil.messageToXml(textMessage);
+		System.out.println(response);
+		return response;
 	}
 }

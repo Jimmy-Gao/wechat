@@ -45,8 +45,8 @@ public class WeChatController extends BaseController {
 	public void weChat() {
 		try (InputStream inputStream = this.getInputStream()) {
 			MessageBean message = WeChatUtil.parseStream2XMLBean(inputStream);
-			System.out.println(message.toString());
 			this.outputText(HandlerFactory.createHandler(message).response());
+			return;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

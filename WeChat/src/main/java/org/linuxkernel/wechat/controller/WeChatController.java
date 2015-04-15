@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import org.linuxkernel.wechat.bean.MessageBean;
 import org.linuxkernel.wechat.handler.HandlerFactory;
+import org.linuxkernel.wechat.service.MessageBeanService;
 import org.linuxkernel.wechat.service.UserService;
 import org.linuxkernel.wechat.util.SignatureUtil;
 import org.linuxkernel.wechat.util.WeChatUtil;
@@ -21,6 +22,9 @@ public class WeChatController extends BaseController {
 	@Autowired(required = true)
 	private UserService userSerivce;
 
+	@Autowired(required = true)
+	private MessageBeanService messageBeanService;
+
 	@RequestMapping(value = "/wechat", method = RequestMethod.GET)
 	public void validate() {
 		String signature = this.getParameter("signature");
@@ -35,7 +39,6 @@ public class WeChatController extends BaseController {
 		}
 		return;
 	}
-
 	@RequestMapping(value = "/wechat", method = RequestMethod.POST)
 	public void weChat() {
 		try (InputStream inputStream = this.getInputStream()) {

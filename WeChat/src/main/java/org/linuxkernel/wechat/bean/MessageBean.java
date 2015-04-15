@@ -1,222 +1,260 @@
 package org.linuxkernel.wechat.bean;
 
-public class MessageBean {
+import java.io.Serializable;
 
-   private String ToUserName = "";
-   private String FromUserName = "";
-   private String CreateTime = "";
-   private String MsgType = "";
-   private String MsgId = "";
-   private String Event = "";
-   private String EventKey = "";
-   private String Ticket = "";
-   private String Latitude = "";
-   private String Longitude = "";
-   private String Precision = "";
-   private String PicUrl = "";
-   private String MediaId = "";
-   private String Title = "";
-   private String Description = "";
-   private String Url = "";
-   private String Location_X = "";
-   private String Location_Y = "";
-   private String Scale = "";
-   private String Label = "";
-   private String Content = "";
-   private String Format = "";
-   private String Recognition = "";
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-   public String getToUserName() {
-      return ToUserName;
-   }
+@Entity
+@Table(name = "req_message")
+public class MessageBean implements Serializable {
 
-   public void setToUserName(String toUserName) {
-      ToUserName = toUserName;
-   }
+	private static final long serialVersionUID = -4969366100355727257L;
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column(name = "ToUserName")
+	private String ToUserName = "";
+	@Column(name = "FromUserName")
+	private String FromUserName = "";
+	@Column(name = "CreateTime")
+	private String CreateTime = "";
+	@Column(name = "MsgType")
+	private String MsgType = "";
+	@Column(name = "MsgId")
+	private String MsgId = "";
+	@Column(name = "Event")
+	private String Event = "";
+	@Column(name = "EventKey")
+	private String EventKey = "";
+	@Column(name = "Ticket")
+	private String Ticket = "";
+	@Column(name = "Latitude")
+	private String Latitude = "";
+	@Column(name = "Longitude")
+	private String Longitude = "";
+	@Column(name = "Precision")
+	private String Precision = "";
+	@Column(name = "PicUrl")
+	private String PicUrl = "";
+	@Column(name = "MediaId")
+	private String MediaId = "";
+	@Column(name = "Title")
+	private String Title = "";
+	@Column(name = "Description")
+	private String Description = "";
+	@Column(name = "Url")
+	private String Url = "";
+	@Column(name = "Location_X")
+	private String Location_X = "";
+	@Column(name = "Location_Y")
+	private String Location_Y = "";
+	@Column(name = "Scale")
+	private String Scale = "";
+	@Column(name = "Label")
+	private String Label = "";
+	@Column(name = "Content")
+	private String Content = "";
+	@Column(name = "Format")
+	private String Format = "";
+	@Column(name = "Recognition")
+	private String Recognition = "";
 
-   public String getFromUserName() {
-      return FromUserName;
-   }
+	public String getToUserName() {
+		return ToUserName;
+	}
 
-   public void setFromUserName(String fromUserName) {
-      FromUserName = fromUserName;
-   }
+	public void setToUserName(String toUserName) {
+		ToUserName = toUserName;
+	}
 
-   public String getCreateTime() {
-      return CreateTime;
-   }
+	public String getFromUserName() {
+		return FromUserName;
+	}
 
-   public void setCreateTime(String createTime) {
-      CreateTime = createTime;
-   }
+	public void setFromUserName(String fromUserName) {
+		FromUserName = fromUserName;
+	}
 
-   public String getMsgType() {
-      return MsgType;
-   }
+	public String getCreateTime() {
+		return CreateTime;
+	}
 
-   public void setMsgType(String msgType) {
-      MsgType = msgType;
-   }
+	public void setCreateTime(String createTime) {
+		CreateTime = createTime;
+	}
 
-   public String getMsgId() {
-      return MsgId;
-   }
+	public String getMsgType() {
+		return MsgType;
+	}
 
-   public void setMsgId(String msgId) {
-      MsgId = msgId;
-   }
+	public void setMsgType(String msgType) {
+		MsgType = msgType;
+	}
 
-   public String getEvent() {
-      return Event;
-   }
+	public String getMsgId() {
+		return MsgId;
+	}
 
-   public void setEvent(String event) {
-      Event = event;
-   }
+	public void setMsgId(String msgId) {
+		MsgId = msgId;
+	}
 
-   public String getEventKey() {
-      return EventKey;
-   }
+	public String getEvent() {
+		return Event;
+	}
 
-   public void setEventKey(String eventKey) {
-      EventKey = eventKey;
-   }
+	public void setEvent(String event) {
+		Event = event;
+	}
 
-   public String getTicket() {
-      return Ticket;
-   }
+	public String getEventKey() {
+		return EventKey;
+	}
 
-   public void setTicket(String ticket) {
-      Ticket = ticket;
-   }
+	public void setEventKey(String eventKey) {
+		EventKey = eventKey;
+	}
 
-   public String getLatitude() {
-      return Latitude;
-   }
+	public String getTicket() {
+		return Ticket;
+	}
 
-   public void setLatitude(String latitude) {
-      Latitude = latitude;
-   }
+	public void setTicket(String ticket) {
+		Ticket = ticket;
+	}
 
-   public String getLongitude() {
-      return Longitude;
-   }
+	public String getLatitude() {
+		return Latitude;
+	}
 
-   public void setLongitude(String longitude) {
-      Longitude = longitude;
-   }
+	public void setLatitude(String latitude) {
+		Latitude = latitude;
+	}
 
-   public String getPrecision() {
-      return Precision;
-   }
+	public String getLongitude() {
+		return Longitude;
+	}
 
-   public void setPrecision(String precision) {
-      Precision = precision;
-   }
+	public void setLongitude(String longitude) {
+		Longitude = longitude;
+	}
 
-   public String getPicUrl() {
-      return PicUrl;
-   }
+	public String getPrecision() {
+		return Precision;
+	}
 
-   public void setPicUrl(String picUrl) {
-      PicUrl = picUrl;
-   }
+	public void setPrecision(String precision) {
+		Precision = precision;
+	}
 
-   public String getMediaId() {
-      return MediaId;
-   }
+	public String getPicUrl() {
+		return PicUrl;
+	}
 
-   public void setMediaId(String mediaId) {
-      MediaId = mediaId;
-   }
+	public void setPicUrl(String picUrl) {
+		PicUrl = picUrl;
+	}
 
-   public String getTitle() {
-      return Title;
-   }
+	public String getMediaId() {
+		return MediaId;
+	}
 
-   public void setTitle(String title) {
-      Title = title;
-   }
+	public void setMediaId(String mediaId) {
+		MediaId = mediaId;
+	}
 
-   public String getDescription() {
-      return Description;
-   }
+	public String getTitle() {
+		return Title;
+	}
 
-   public void setDescription(String description) {
-      Description = description;
-   }
+	public void setTitle(String title) {
+		Title = title;
+	}
 
-   public String getUrl() {
-      return Url;
-   }
+	public String getDescription() {
+		return Description;
+	}
 
-   public void setUrl(String url) {
-      Url = url;
-   }
+	public void setDescription(String description) {
+		Description = description;
+	}
 
-   public String getLocation_X() {
-      return Location_X;
-   }
+	public String getUrl() {
+		return Url;
+	}
 
-   public void setLocation_X(String location_X) {
-      Location_X = location_X;
-   }
+	public void setUrl(String url) {
+		Url = url;
+	}
 
-   public String getLocation_Y() {
-      return Location_Y;
-   }
+	public String getLocation_X() {
+		return Location_X;
+	}
 
-   public void setLocation_Y(String location_Y) {
-      Location_Y = location_Y;
-   }
+	public void setLocation_X(String location_X) {
+		Location_X = location_X;
+	}
 
-   public String getScale() {
-      return Scale;
-   }
+	public String getLocation_Y() {
+		return Location_Y;
+	}
 
-   public void setScale(String scale) {
-      Scale = scale;
-   }
+	public void setLocation_Y(String location_Y) {
+		Location_Y = location_Y;
+	}
 
-   public String getLabel() {
-      return Label;
-   }
+	public String getScale() {
+		return Scale;
+	}
 
-   public void setLabel(String label) {
-      Label = label;
-   }
+	public void setScale(String scale) {
+		Scale = scale;
+	}
 
-   public String getContent() {
-      return Content;
-   }
+	public String getLabel() {
+		return Label;
+	}
 
-   public void setContent(String content) {
-      Content = content;
-   }
+	public void setLabel(String label) {
+		Label = label;
+	}
 
-   public String getFormat() {
-      return Format;
-   }
+	public String getContent() {
+		return Content;
+	}
 
-   public void setFormat(String format) {
-      Format = format;
-   }
+	public void setContent(String content) {
+		Content = content;
+	}
 
-   public String getRecognition() {
-      return Recognition;
-   }
+	public String getFormat() {
+		return Format;
+	}
 
-   public void setRecognition(String recognition) {
-      Recognition = recognition;
-   }
+	public void setFormat(String format) {
+		Format = format;
+	}
 
-   @Override
-   public String toString() {
-      return "XMLBean [ToUserName=" + ToUserName + ", FromUserName=" + FromUserName + ", CreateTime=" + CreateTime + ", MsgType=" + MsgType + ", MsgId=" + MsgId + ", Event=" + Event + ", EventKey="
-            + EventKey + ", Ticket=" + Ticket + ", Latitude=" + Latitude + ", Longitude=" + Longitude + ", Precision=" + Precision + ", PicUrl=" + PicUrl + ", MediaId=" + MediaId + ", Title=" + Title
-            + ", Description=" + Description + ", Url=" + Url + ", Location_X=" + Location_X + ", Location_Y=" + Location_Y + ", Scale=" + Scale + ", Label=" + Label + ", Content=" + Content
-            + ", Format=" + Format + ", Recognition=" + Recognition + "]";
-   }
+	public String getRecognition() {
+		return Recognition;
+	}
 
+	public void setRecognition(String recognition) {
+		Recognition = recognition;
+	}
+
+	@Override
+	public String toString() {
+		return "XMLBean [ToUserName=" + ToUserName + ", FromUserName=" + FromUserName + ", CreateTime=" + CreateTime + ", MsgType=" + MsgType + ", MsgId=" + MsgId + ", Event=" + Event + ", EventKey="
+				+ EventKey + ", Ticket=" + Ticket + ", Latitude=" + Latitude + ", Longitude=" + Longitude + ", Precision=" + Precision + ", PicUrl=" + PicUrl + ", MediaId=" + MediaId + ", Title="
+				+ Title + ", Description=" + Description + ", Url=" + Url + ", Location_X=" + Location_X + ", Location_Y=" + Location_Y + ", Scale=" + Scale + ", Label=" + Label + ", Content="
+				+ Content + ", Format=" + Format + ", Recognition=" + Recognition + "]";
+	}
 
 }

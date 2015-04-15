@@ -21,7 +21,7 @@ abstract class BaseController {
    private HttpServletResponse response;
 
    public void outputText(String text) {
-      response.setContentType("text/html;charset=utf-8");
+      response.setContentType("text/xml;charset=utf-8");
       response.setCharacterEncoding("UTF-8");
       try {
          PrintWriter out = response.getWriter();

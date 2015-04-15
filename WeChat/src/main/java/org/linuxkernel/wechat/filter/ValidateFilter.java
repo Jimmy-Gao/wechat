@@ -16,46 +16,46 @@ import org.springframework.web.filter.GenericFilterBean;
 @Component
 public class ValidateFilter extends GenericFilterBean {
 
-   private String[] allows = new String[1];
+	private String[] allows = new String[1];
 
-   public ValidateFilter() {
-   }
+	public ValidateFilter() {
+	}
 
-   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-      request.setCharacterEncoding("UTF-8");
-      response.setCharacterEncoding("UTF-8");
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 
-      if (requiresAuthentication((HttpServletRequest) request)) {
-         String requestType = ((HttpServletRequest) request).getHeader("X-Requested-With");
-         if (requestType != null && !requestType.isEmpty() && requestType.equalsIgnoreCase("XMLHttpRequest")) {
-            ((HttpServletResponse) response).setStatus(404);
-            ((HttpServletResponse) response).setHeader("sessionstatus", "timeout");
-            return;
-         }
-         ((HttpServletResponse) response).sendRedirect("/wechat");
-         return;
-      }
-      chain.doFilter(request, response);
-   }
+		if (requiresAuthentication((HttpServletRequest) request)) {
+			String requestType = ((HttpServletRequest) request).getHeader("X-Requested-With");
+			if (requestType != null && !requestType.isEmpty() && requestType.equalsIgnoreCase("XMLHttpRequest")) {
+				((HttpServletResponse) response).setStatus(404);
+				((HttpServletResponse) response).setHeader("sessionstatus", "timeout");
+				return;
+			}
+			((HttpServletResponse) response).sendRedirect("/web");
+			return;
+		}
+		chain.doFilter(request, response);
+	}
 
-   private boolean requiresAuthentication(HttpServletRequest request) {
-      for (int i = 0; i < allows.length; i++) {
-         if (request.getServletPath().contains(allows[i])) {
-            return false;
-         }
-      }
-      Object service = SessionUtil.getWeChatService(request.getSession());
-      if (service == null) {
-         return true;
-      }
-      return false;
-   }
+	private boolean requiresAuthentication(HttpServletRequest request) {
+		for (int i = 0; i < allows.length; i++) {
+			if (request.getServletPath().contains(allows[i])) {
+				return false;
+			}
+		}
+		Object service = SessionUtil.getWeChatService(request.getSession());
+		if (service == null) {
+			return true;
+		}
+		return false;
+	}
 
-   public String[] getAllows() {
-      return allows;
-   }
+	public String[] getAllows() {
+		return allows;
+	}
 
-   public void setAllows(String[] allows) {
-      this.allows = allows;
-   }
+	public void setAllows(String[] allows) {
+		this.allows = allows;
+	}
 }

@@ -9,7 +9,7 @@
 			<array>
 				<value>wechat</value>
 				<value>media</value>
-				<value>.html</value>
+				<value>web</value>
 			</array>
 		</property>
 	</bean>

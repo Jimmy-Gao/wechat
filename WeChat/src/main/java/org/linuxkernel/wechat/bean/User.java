@@ -12,60 +12,59 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
-   private static final long serialVersionUID = 2612236846719842151L;
+	private static final long serialVersionUID = 2612236846719842151L;
 
-   @Id
+	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-   private int id;
-   @Column(name = "name")
-   private String name;
-   @Column(name = "password")
-   private String password;
-   @Column(name = "tel")
-   private String tel;
-   @Column(name = "address")
-   private String address;
+	private int id;
+	@Column(name = "uid")
+	private String name;
+	@Column(name = "follow_state")
+	private String state;
+	@Column(name = "follow_date")
+	private String date;
 
-   public int getId() {
-      return id;
-   }
+	public int getId() {
+		return id;
+	}
 
-   public void setId(int id) {
-      this.id = id;
-   }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-   public String getName() {
-      return name;
-   }
+	public String getName() {
+		return name;
+	}
 
-   public void setName(String name) {
-      this.name = name;
-   }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-   public String getPassword() {
-      return password;
-   }
+	public String getState() {
+		return state;
+	}
 
-   public void setPassword(String password) {
-      this.password = password;
-   }
+	public void setState(String state) {
+		this.state = state;
+	}
 
-   public String getTel() {
-      return tel;
-   }
+	public String getDate() {
+		return date;
+	}
 
-   public void setTel(String tel) {
-      this.tel = tel;
-   }
+	public void setDate(String date) {
+		this.date = date;
+	}
 
-   public String getAddress() {
-      return address;
-   }
+	public User() {
 
-   public void setAddress(String address) {
-      this.address = address;
-   }
+	}
 
-
+	public User(String name, String state, String date) {
+		super();
+		this.name = name;
+		this.state = state;
+		this.date = date;
+	}
 }

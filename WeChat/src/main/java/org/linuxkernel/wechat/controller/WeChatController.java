@@ -7,6 +7,7 @@ import org.linuxkernel.wechat.bean.MessageBean;
 import org.linuxkernel.wechat.handler.HandlerFactory;
 import org.linuxkernel.wechat.service.MessageBeanService;
 import org.linuxkernel.wechat.service.UserService;
+import org.linuxkernel.wechat.service.WelcomeService;
 import org.linuxkernel.wechat.util.SignatureUtil;
 import org.linuxkernel.wechat.util.WeChatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,17 @@ public class WeChatController extends BaseController {
 	@Autowired(required = true)
 	private MessageBeanService messageBeanService;
 
+	@Autowired(required = true)
+	private WelcomeService welcomeService;
+
 	@RequestMapping(value = "/wechat", method = RequestMethod.GET)
 	public void validate() {
 		String signature = this.getParameter("signature");
 		String timestamp = this.getParameter("timestamp");
 		String nonce = this.getParameter("nonce");
 		String echostr = this.getParameter("echostr");
-		if (null != signature && null != timestamp && null != nonce && null != echostr) {
+		if (null != signature && null != timestamp && null != nonce
+				&& null != echostr) {
 			if (SignatureUtil.checkSignature(signature, timestamp, nonce)) {
 				this.outputText(echostr);
 				return;
@@ -39,11 +44,13 @@ public class WeChatController extends BaseController {
 		}
 		return;
 	}
+
 	@RequestMapping(value = "/wechat", method = RequestMethod.POST)
 	public void weChat() {
 		try (InputStream inputStream = this.getInputStream()) {
 			MessageBean message = WeChatUtil.parseStream2XMLBean(inputStream);
-			this.outputText(HandlerFactory.createHandler(message).response());
+			this.outputText(HandlerFactory.createHandler(message).response(
+					userSerivce, messageBeanService, welcomeService));
 			return;
 		} catch (IOException e) {
 			e.printStackTrace();

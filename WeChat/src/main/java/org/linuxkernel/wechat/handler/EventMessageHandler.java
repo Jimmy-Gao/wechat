@@ -41,6 +41,7 @@ public class EventMessageHandler extends MessageHandler {
 		textMessage.setFuncFlag(0);
 		String response = ParseUtil.messageToXml(textMessage);
 		return response;
+
 	}
 
 	private String _unsubscibe(UserService userService,

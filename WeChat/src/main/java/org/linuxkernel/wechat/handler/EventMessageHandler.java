@@ -1,7 +1,11 @@
 package org.linuxkernel.wechat.handler;
 
 import org.linuxkernel.wechat.bean.MessageBean;
+import org.linuxkernel.wechat.bean.User;
 import org.linuxkernel.wechat.bean.message.TextMessage;
+import org.linuxkernel.wechat.service.MessageBeanService;
+import org.linuxkernel.wechat.service.UserService;
+import org.linuxkernel.wechat.service.WelcomeService;
 import org.linuxkernel.wechat.util.ParseUtil;
 
 public class EventMessageHandler extends MessageHandler {
@@ -9,22 +13,46 @@ public class EventMessageHandler extends MessageHandler {
 		super(message);
 	}
 
-	public String response() {
-		String content = "";
+	@Override
+	public String response(UserService userService,
+			MessageBeanService messageService, WelcomeService welcomeService) {
+		messageService.addMessage(message);
+		User user = ParseUtil.parseMessageBean2User(message);
+		String response = "";
 		switch (message.getEvent().toLowerCase()) {
 		case "subscribe":
-			content = "welcome to my house!";
+			response = _subscibe(userService, welcomeService, user, message);
+			break;
 		case "unsubscribe":
-			content = "oop";
-		default:
-			content = "welcome to my house!";
+			response = _unsubscibe(userService, welcomeService, user, message);
+			break;
 		}
-		System.out.println(message.toString());
+		return response;
+
+	}
+
+	private String _subscibe(UserService userService,
+			WelcomeService welcomeService, User user, MessageBean message) {
+
+		userService.subscribe(user);
 		TextMessage textMessage = new TextMessage(message);
+		String content = "welcome to follow me! You can send ? to me to get menus。。。";
 		textMessage.setContent(content);
 		textMessage.setFuncFlag(0);
 		String response = ParseUtil.messageToXml(textMessage);
-		System.out.println(response);
 		return response;
+
+	}
+
+	private String _unsubscibe(UserService userService,
+			WelcomeService welcomeService, User user, MessageBean message) {
+		userService.unsubscribe(user);
+		TextMessage textMessage = new TextMessage(message);
+		String content = "oop... why do you leave me?";
+		textMessage.setContent(content);
+		textMessage.setFuncFlag(0);
+		String response = ParseUtil.messageToXml(textMessage);
+		return response;
+
 	}
 }

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "req_message")
+@Table(name = "message")
 public class MessageBean implements Serializable {
 
 	private static final long serialVersionUID = -4969366100355727257L;
@@ -32,37 +32,37 @@ public class MessageBean implements Serializable {
 	private String Event = "";
 	@Column(name = "EventKey")
 	private String EventKey = "";
-	@Column(name = "Ticket")
+	@Column(name = "m_Ticket")
 	private String Ticket = "";
 	@Column(name = "Latitude")
 	private String Latitude = "";
 	@Column(name = "Longitude")
 	private String Longitude = "";
-	@Column(name = "Precision")
+	@Column(name = "m_Precision")
 	private String Precision = "";
 	@Column(name = "PicUrl")
 	private String PicUrl = "";
 	@Column(name = "MediaId")
 	private String MediaId = "";
-	@Column(name = "Title")
+	@Column(name = "m_Title")
 	private String Title = "";
 	@Column(name = "Description")
 	private String Description = "";
-	@Column(name = "Url")
+	@Column(name = "m_Url")
 	private String Url = "";
 	@Column(name = "Location_X")
 	private String Location_X = "";
 	@Column(name = "Location_Y")
 	private String Location_Y = "";
-	@Column(name = "Scale")
+	@Column(name = "m_Scale")
 	private String Scale = "";
-	@Column(name = "Label")
+	@Column(name = "m_Label")
 	private String Label = "";
 	@Column(name = "Content")
 	private String Content = "";
 	@Column(name = "Format")
 	private String Format = "";
-	@Column(name = "Recognition")
+	@Column(name = "m_Recognition")
 	private String Recognition = "";
 
 	public String getToUserName() {

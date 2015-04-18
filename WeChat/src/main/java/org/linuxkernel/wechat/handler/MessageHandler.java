@@ -1,6 +1,9 @@
 package org.linuxkernel.wechat.handler;
 
 import org.linuxkernel.wechat.bean.MessageBean;
+import org.linuxkernel.wechat.service.MessageBeanService;
+import org.linuxkernel.wechat.service.UserService;
+import org.linuxkernel.wechat.service.WelcomeService;
 
 public class MessageHandler implements Handler {
 
@@ -14,7 +17,8 @@ public class MessageHandler implements Handler {
 
 	}
 
-	public String response() {
+	public String response(UserService userService,
+			MessageBeanService messageService, WelcomeService welcomeService) {
 		return null;
 	}
 }

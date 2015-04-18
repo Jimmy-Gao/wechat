@@ -32,7 +32,8 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/weichat?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="url"
+			value="jdbc:mysql://127.0.0.1:3306/wechat?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username" value="root" />
 		<property name="password" value="ca$hc0w" />
 	</bean>
@@ -50,6 +51,7 @@
 		<property name="packagesToScan">
 			<list>
 				<value>org.linuxkernel.wechat.bean</value>
+				<value>org.linuxkernel.wechat.bean.message</value>
 			</list>
 		</property>
 	</bean>

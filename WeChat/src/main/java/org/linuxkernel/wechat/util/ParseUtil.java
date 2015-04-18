@@ -3,6 +3,8 @@ package org.linuxkernel.wechat.util;
 import java.io.Writer;
 
 import org.linuxkernel.wechat.bean.Article;
+import org.linuxkernel.wechat.bean.MessageBean;
+import org.linuxkernel.wechat.bean.User;
 import org.linuxkernel.wechat.bean.message.ImageMessage;
 import org.linuxkernel.wechat.bean.message.Message;
 
@@ -46,5 +48,12 @@ public class ParseUtil {
 			};
 		}
 	});
+
+	public static User parseMessageBean2User(MessageBean message) {
+
+		return new User(message.getFromUserName(), message.getEvent(),
+				message.getCreateTime());
+
+	}
 
 }

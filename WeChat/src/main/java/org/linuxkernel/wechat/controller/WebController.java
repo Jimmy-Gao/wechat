@@ -1,12 +1,8 @@
 package org.linuxkernel.wechat.controller;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
+import org.linuxkernel.wechat.service.MessageBeanService;
 import org.linuxkernel.wechat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -21,18 +17,30 @@ public class WebController extends BaseController {
 
 	@Autowired(required = true)
 	private UserService userSerivce;
+	@Autowired(required = true)
+	private MessageBeanService messageBeanService;
+
 	@RequestMapping(value = "/web", method = RequestMethod.GET)
 	public String welcome(Model model, HttpSession session) {
-		if (null == session.getAttribute("IP") || "".equals(session.getAttribute("IP"))) {
+		if (null == session.getAttribute("IP")
+				|| "".equals(session.getAttribute("IP"))) {
 			session.setAttribute("IP", getremoteIP());
 		}
-		System.out.println(session.getAttribute("IP"));
-
-		Map<String, Cookie> cookies = getAllCookie();
-		Set<Entry<String, Cookie>> set = cookies.entrySet();
-		for (Entry<String, Cookie> entry : set) {
-			System.out.println(entry.getKey() + "=" + entry.getValue().getDomain());
-		}
 		return "wechat";
+	}
+
+	@RequestMapping(value = "/web/2048", method = RequestMethod.GET)
+	public String game_2048() {
+		return "game/2048/index";
+	}
+
+	@RequestMapping(value = "/web/about_me", method = RequestMethod.GET)
+	public String about_me() {
+		return "about_me";
+	}
+
+	@RequestMapping(value = "/web/contact_me", method = RequestMethod.GET)
+	public String contact_me() {
+		return "contact_me";
 	}
 }

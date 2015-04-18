@@ -8,7 +8,13 @@
 		<property name="allows">
 			<array>
 				<value>wechat</value>
-				<value>media</value>
+				<value>.gif</value>
+				<value>.png</value>
+				<value>.jpg</value>
+				<value>.js</value>
+				<value>.ico</value>
+				<value>.css</value>
+				<value>assets</value>
 				<value>web</value>
 			</array>
 		</property>

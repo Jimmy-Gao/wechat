@@ -45,7 +45,6 @@ public class WeChatUtil {
 			HttpsURLConnection httpUrlConn = (HttpsURLConnection) url
 					.openConnection();
 			httpUrlConn.setSSLSocketFactory(ssf);
-
 			httpUrlConn.setDoOutput(true);
 			httpUrlConn.setDoInput(true);
 			httpUrlConn.setUseCaches(false);

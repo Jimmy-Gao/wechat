@@ -18,7 +18,10 @@ public class Config {
    }
 
    public static final String PROJECT_NAME = props.getProperty("projectName");
+
    public static final String COPY_RIGHT = props.getProperty("copyRight");
+
    public static final String APPLICATION = props.getProperty("application");
+
    public static final String TOKEN = props.getProperty("token");
 }

@@ -17,12 +17,12 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for dao" enabled="true">
+      <profile default="false" name="Annotation profile for api" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="dao" />
+        <module name="api" />
       </profile>
       <profile default="false" name="Annotation profile for web" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -31,12 +31,12 @@
         <processorPath useClasspath="true" />
         <module name="web" />
       </profile>
-      <profile default="false" name="Annotation profile for api" enabled="true">
+      <profile default="false" name="Annotation profile for dao" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="api" />
+        <module name="dao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.y0.mapper.UserMapper">
+    <insert id="register" parameterType="User" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO user (username,password,phoneNumber,userType,token)
+        VALUES
+        (#{username},#{password},#{phoneNumber},#{userType},#{token});
+    </insert>
+    <select id="getByID" resultType="cn.y0.domain.User">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+    <select id="getByUserName" resultType="cn.y0.domain.User">
+        SELECT * FROM user WHERE userName=#{userName}
+    </select>
+    <select id="getByPhoneNumber" resultType="cn.y0.domain.User">
+        SELECT * FROM user WHERE phoneNumber=#{phoneNumber}
+    </select>
+    <select id="getByEmail" resultType="cn.y0.domain.User">
+        SELECT * FROM user WHERE email=#{email}
+    </select>
+    <update id="updateDomain">
+        UPDATE user SET domain = #{domain} WHERE ID=#{id}
+    </update>
+    <select id="getDomainByID" resultType="string">
+        SELECT domain FROM user WHERE ID=#{id}
+    </select>
+    <select id="getDomainID" resultType="java.lang.Integer">
+        SELECT IFNULL(id,-1) FROM user WHERE domain=#{domain}
+    </select>
+</mapper>

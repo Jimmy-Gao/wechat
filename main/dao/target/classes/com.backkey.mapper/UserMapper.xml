@@ -7,16 +7,16 @@
         VALUES
         (#{username},#{password},#{phoneNumber},#{userType},#{token});
     </insert>
-    <select id="getByID" resultType="cn.y0.domain.User">
+    <select id="getByID" resultType="com.backkey.bean.User">
         SELECT * FROM user WHERE id=#{id}
     </select>
-    <select id="getByUserName" resultType="cn.y0.domain.User">
+    <select id="getByUserName" resultType="com.backkey.bean.User">
         SELECT * FROM user WHERE userName=#{userName}
     </select>
-    <select id="getByPhoneNumber" resultType="cn.y0.domain.User">
+    <select id="getByPhoneNumber" resultType="com.backkey.bean.User">
         SELECT * FROM user WHERE phoneNumber=#{phoneNumber}
     </select>
-    <select id="getByEmail" resultType="cn.y0.domain.User">
+    <select id="getByEmail" resultType="com.backkey.bean.User">
         SELECT * FROM user WHERE email=#{email}
     </select>
     <update id="updateDomain">

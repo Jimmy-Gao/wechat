@@ -24,4 +24,5 @@ public class Config {
    public static final String APPLICATION = props.getProperty("application");
 
    public static final String TOKEN = props.getProperty("token");
+
 }

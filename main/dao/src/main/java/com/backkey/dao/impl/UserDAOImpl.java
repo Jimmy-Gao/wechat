@@ -12,9 +12,6 @@ import javax.annotation.Resource;
 public class UserDAOImpl extends UserDAO {
     @Resource
     UserMapper userMapper;
-
-    @Resource
-
     @Override
     public void register(User user) {
         userMapper.register(user);

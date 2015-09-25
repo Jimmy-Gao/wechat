@@ -7,8 +7,6 @@ public class HandlerFactory {
 
     public static MessageHandler createHandler(MessageBean message) {
         switch (message.getMsgType().toUpperCase()) {
-            case "TEXT":
-                return new TextMassagerHandler(message);
             case "VIDEO":
                 return new VideoMassagerHandler(message);
             case "IMAGE":

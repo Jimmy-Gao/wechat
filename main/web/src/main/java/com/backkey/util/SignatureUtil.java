@@ -24,7 +24,7 @@ public class SignatureUtil {
         for (int i = 0; i < arr.length; i++) {
             content.append(arr[i]);
         }
-        MessageDigest md = null;
+        MessageDigest md;
         String tmpStr = null;
 
         try {
@@ -34,7 +34,6 @@ public class SignatureUtil {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        content = null;
         return tmpStr != null ? tmpStr.equals(signature.toUpperCase()) : false;
     }
 
@@ -51,7 +50,7 @@ public class SignatureUtil {
     }
 
     /**
-     * @param b
+     * @param
      * @return
      */
     private static String byteToHexStr(byte b) {

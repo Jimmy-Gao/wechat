@@ -42,6 +42,7 @@
     <bytecodeTargetLevel>
       <module name="api" target="1.8" />
       <module name="dao" target="1.8" />
+      <module name="executor" target="1.5" />
       <module name="main" target="1.8" />
       <module name="web" target="1.8" />
     </bytecodeTargetLevel>

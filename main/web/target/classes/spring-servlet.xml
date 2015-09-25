@@ -14,7 +14,19 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
     <mvc:annotation-driven conversion-service="conversionService"/>
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"/>
-
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="requestTimeLogInterceptor" class="com.backkey.interceptor.RequestTimeLogInterceptor"/>
+        </mvc:interceptor>
+        <!-- 登录拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/web"/>
+            <mvc:exclude-mapping path="/wechat"/>
+            <bean id="loginInterceptor" class="com.backkey.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!--template engine: process response -->
     <bean id="templateResolver"

@@ -14,15 +14,13 @@
 	<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
 	<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
 
-
 </head>
 <body class="page-header-fixed">
 <div id="template_header">
 	<div class="navbar header navbar-fixed-top">
-		<div class="navbar-inner">
+		<section class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="/"><%=Config.PROJECT_NAME%></a>
-
+				<a class="brand" href="/"></a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -51,7 +49,7 @@
 									新消息(3)</a></li>
 								<li><a href="#"><b class="icon-tasks"></b>我的任务</a></li>
 								<li class="divider"></li>
-								<li><a href="index"><b class="icon-lock"></b> 锁屏</a></li>
+								<li><a href="index"><b class="icon-lock"></b>锁屏</a></li>
 								<li><a href="index"><b class="icon-remove-circle"></b>
 									注销登录</a></li>
 							</ul>
@@ -128,16 +126,16 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</section>
 	</div>
 </div>
 <div id="template_content" class="page-container row-fluid">
 	<div class="padding-center">
 		<div class="span3">
-			<div class="portlet box blue">
+			<div class="portlet box gray">
 				<div class="portlet-title">
 					<div class="caption">
-						<i class="icon-user"></i>扫一下关注我
+						<i class="icon-user"></i>关注我
 					</div>
 					<div class="tools">
 						<a href="javascript:;" class="collapse"></a> <a
@@ -147,7 +145,7 @@
 					</div>
 				</div>
 				<div class="portlet-body">
-					<img alt="QR Code" src="@{/images/QRcode.jpg">
+					<img alt="QR Code" th:src="@{/images/QRcode.jpg}">
 				</div>
 			</div>
 			<div class="portlet box green">

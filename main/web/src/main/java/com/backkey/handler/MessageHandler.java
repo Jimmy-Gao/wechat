@@ -18,8 +18,7 @@ public class MessageHandler implements Handler {
 
     }
 
-    public String response(UserService userService,
-                           MessageBeanService messageService, WelcomeService welcomeService) {
+    public String response(UserService userService, MessageBeanService messageService, WelcomeService welcomeService) {
         return null;
     }
 }

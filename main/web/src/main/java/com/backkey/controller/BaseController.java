@@ -25,7 +25,7 @@ abstract class BaseController {
 		response.setCharacterEncoding("UTF-8");
 		try {
 			PrintWriter out = response.getWriter();
-			out.print(text);
+			out.write(text);
 			out.flush();
 			out.close();
 		} catch (IOException e) {

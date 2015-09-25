@@ -17,7 +17,7 @@ public class TextMassagerHandler extends MessageHandler {
     public String response(UserService userService,
                            MessageBeanService messageService, WelcomeService welcomeService) {
         messageService.addMessage(message);
-        String response = "";
+        String response;
         switch (message.getContent().toLowerCase()) {
             case "?":
                 response = _menu();
@@ -32,7 +32,6 @@ public class TextMassagerHandler extends MessageHandler {
                 response = _menu();
                 break;
         }
-
         return response;
     }
 

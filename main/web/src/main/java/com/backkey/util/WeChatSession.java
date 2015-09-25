@@ -60,7 +60,6 @@ public class WeChatSession implements Comparable<WeChatSession>{
 	
 	
 	public void release(){
-		
 		for (Object o : apis.values()) {
 			if (o instanceof AutoCloseable) {
 				try {

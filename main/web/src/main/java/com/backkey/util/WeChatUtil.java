@@ -3,6 +3,7 @@ package com.backkey.util;
 import com.backkey.bean.AccessToken;
 import com.backkey.bean.MessageBean;
 import com.backkey.bean.button.Menu;
+import com.google.common.base.Strings;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 import org.dom4j.Document;
@@ -126,7 +127,7 @@ public class WeChatUtil {
         try (InputStreamReader inputStreamReader = new InputStreamReader(
                 inputStream)) {
             BufferedReader buffer = new BufferedReader(inputStreamReader);
-            String str = "";
+            String str;
             while ((str = buffer.readLine()) != null) {
                 xmlStr.append(str);
             }
@@ -141,7 +142,7 @@ public class WeChatUtil {
     private static MessageBean _parseStr2XML(String xml) {
         MessageBean messageBean = null;
         try {
-            if (xml.length() <= 0 || xml == null)
+            if (Strings.isNullOrEmpty(xml))
                 return null;
             Document document = DocumentHelper.parseText(xml);
             Element root = document.getRootElement();

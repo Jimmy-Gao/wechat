@@ -50,8 +50,9 @@ public class ParseUtil {
 
     public static User parseMessageBean2User(MessageBean message) {
 
-        return new User(message.getFromUserName(), message.getEvent(),
-                message.getCreateTime());
+        User user = new User();
+        user.setUsername(message.getFromUserName());
+        return user;
 
     }
 
